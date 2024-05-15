@@ -8,6 +8,9 @@ $endif$
 $if(projectno)$
   projectno: "$projectno$",
 $endif$
+$if(toc)$
+  toc: "$toc$",
+$endif$
 $if(logo)$
   logo: "$logo$", 
 $endif$

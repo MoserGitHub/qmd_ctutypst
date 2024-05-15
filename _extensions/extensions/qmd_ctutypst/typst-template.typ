@@ -7,11 +7,13 @@
 // Last changes:
 // - Added project number
 // - Multiple authors
+// - TOC
 
 #let ctu_typst_template(
   title: none,
   subtitle: none,
   projectno: none,
+  toc: false,
   author: (),
   affiliations: (),
   logo: none,
@@ -23,24 +25,25 @@
 ) = {
 
 
+  // Spacer for footer
   let spacer = text(fill: gray)[#h(8pt) | #h(8pt)]
   
-  // Set document metadata.
+  // Set document metadata
   set document(title: title)
-  // Set the body font.
+  // Set the body font
   set text(font: font-face)
 
-  // Configure pages.
+  // Configure title page
   set page(
     paper-size,
-    margin: (left: 1cm, right: 1cm, top: 3cm, bottom: 2cm),
+    margin: (left: 2cm, right: 2cm, top: 5cm, bottom: 2cm),
     header: block(
       width: 100%,
       inset: (top: 1pt, right: 2pt),
       if (logo != none) {
         place(
           top+right,
-          dy: -20pt,
+          dy: -2cm,
           float: false,
         box(
           width: 27%,
@@ -101,25 +104,35 @@
     )
   }
   
-  // set align(left)
-  // text(size: 12pt, authors.map(author => author.name), weight: "semibold")
-  // set align(left)
-  // text(size: 10pt, affiliation)
-  // set align(left)
-  
   // Second horizontal line
   line(length: 100%)
 
   v(0.2fr)
 
+  // Set counter for pages
   counter(page).update(0)
 
-  pagebreak()
 
+  // Table of content
+  if toc != false {
+  // Space between section heading
+  show heading: it => {
+    it.body
+    v(0.7em)
+  }
+  
+  pagebreak()
+  counter(page).update(0)
+  outline()
+  }
+  
   // Configure main document pages
+  
+
+  
   set page(
     paper-size,
-    margin: (left: 1cm, right: 1cm, top: 3cm, bottom: 2cm),
+    margin: (left: 2cm, right: 2cm, top: 5cm, bottom: 2cm),
     numbering: "1",
     number-align: right,
     header: block(
@@ -128,7 +141,7 @@
       if (logo != none) {
         place(
           top+right,
-          dy: -20pt,
+          dy: -2cm,
           float: false,
         box(
           width: 27%,
@@ -160,18 +173,17 @@
       ]
     )
   )
+
+  pagebreak()
   
   // Configure headings.
   set heading(numbering: heading-numbering)
 
-  // Space between section heading
-  show heading: it => {
-    it.body
-    v(0.7em)
-  }
+  // Space between section headings
+  show heading: set block(above: 1cm, below: 0.5cm)
 
   set align(left)
-  text(size: 8pt, body)
+  text(size: 9pt, body)
   
-  set par(justify: true, leading: 1em)
+  set par(justify: true, leading: 2em)
 }
