@@ -19,7 +19,7 @@
   logo: none,
   date: datetime.today(),
   paper-size: "a4",
-  font-face: "Verdana",
+  font-face: "Arial",
   heading-numbering: "1.1.1",
   body,
 ) = {
