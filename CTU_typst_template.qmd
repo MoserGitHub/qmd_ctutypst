@@ -1,0 +1,15 @@
+---
+title: "Title"
+subtitle: "Subtitle"
+projectno: "XXXX"
+format: qmd_ctutypst-typst
+author:
+    - name: "André Moser"
+      affiliation: "CTU Bern, Department of Clinical Research, University of Bern"
+      email: "andre.moser@unibe.ch"
+    - name: "Alan Haynes"
+      affiliation: "CTU Bern, Department of Clinical Research, University of Bern"
+      email: "alan.haynes@unibe.ch"
+logo: "/dcrlogo.jpg"
+---
+

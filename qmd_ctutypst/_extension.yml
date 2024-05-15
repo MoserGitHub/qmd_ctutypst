@@ -1,0 +1,9 @@
+title: MATRIX2
+author: André Moser
+version: 0.0.1
+contributes:
+  formats:
+    typst:
+      template-partials:
+        - typst-template.typ
+        - typst-show.typ
