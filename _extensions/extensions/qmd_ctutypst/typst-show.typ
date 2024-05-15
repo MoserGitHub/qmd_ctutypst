@@ -28,4 +28,7 @@ $endif$
 $if(affiliation)$
   affiliation: "$affiliation$",
 $endif$
+$if(heading-numbering)$
+  heading-numbering: $heading-numbering$,
+$endif$
 )
