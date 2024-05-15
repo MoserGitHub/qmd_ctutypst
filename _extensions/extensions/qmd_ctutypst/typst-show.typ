@@ -14,6 +14,9 @@ $endif$
 $if(logo)$
   logo: "$logo$", 
 $endif$
+$if(paper-size)$
+  paper-size: "$paper-size$", 
+$endif$
 $if(by-author)$
   author: (
 $for(by-author)$
