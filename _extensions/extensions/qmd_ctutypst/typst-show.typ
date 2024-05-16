@@ -9,13 +9,16 @@ $if(projectno)$
   projectno: "$projectno$",
 $endif$
 $if(toc)$
-  toc: "$toc$",
+  toc: $toc$,
+$endif$
+$if(paper-size)$
+  paper-size: "$paper-size$", 
 $endif$
 $if(logo)$
   logo: "$logo$", 
 $endif$
-$if(paper-size)$
-  paper-size: "$paper-size$", 
+$if(logo_size)$
+  logo_size: $logo_size$, 
 $endif$
 $if(by-author)$
   author: (
@@ -27,9 +30,6 @@ $if(it.name.literal)$
 $endif$
 $endfor$
     ),
-$endif$
-$if(affiliation)$
-  affiliation: "$affiliation$",
 $endif$
 $if(heading-numbering)$
   heading-numbering: $heading-numbering$,

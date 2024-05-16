@@ -3,7 +3,6 @@
 // CTU Bern, Department of Clinical Research, University of Bern
 // Some source https://github.com/LaPreprint/typst/blob/main/lapreprint.typ
 
-
 // Last changes:
 // - Added project number
 // - Multiple authors
@@ -16,7 +15,11 @@
   toc: false,
   author: (),
   affiliations: (),
+  path_logo: "/_extensions/extensions/qmd_ctutypst/",
+  // logo_size: filename (fore example, "dcrlogo.jpg")
   logo: none,
+  // logo_size: percentage (for example, 80%) or auto
+  logo_size: 100%,
   date: datetime.today(),
   paper-size: "a4",
   font-face: "Arial",
@@ -47,7 +50,7 @@
           float: false,
         box(
           width: 27%,
-          image(logo, width: 130%)
+          image(path_logo+logo, width: logo_size)
         ),
       )
       }
@@ -145,7 +148,7 @@
           float: false,
         box(
           width: 27%,
-          image(logo, width: 130%)
+          image(path_logo+logo, width: logo_size)
         ),
       )
       }
@@ -186,4 +189,5 @@
   text(size: 9pt, body)
   
   set par(justify: true, leading: 2em)
+
 }
