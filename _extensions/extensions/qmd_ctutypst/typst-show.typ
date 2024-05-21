@@ -31,7 +31,11 @@ $endif$
 $endfor$
     ),
 $endif$
+$if(heading)$
 $if(heading-numbering)$
-  heading-numbering: $heading-numbering$,
+  heading-numbering: "$heading-numbering$",
+$endif$
+$else$
+  heading-numbering: none,
 $endif$
 )
