@@ -161,7 +161,7 @@
         #grid(columns: (75%, 25%),
           align(left, text(size: 9pt, fill: gray.darken(50%),
               (
-                {emph(title)},
+                {emph(title)+emph(": ")+emph(subtitle)},
                 if(date != none) {date.display("[month repr:long] [day], [year]")}
               ).filter(t => t != none).join(spacer)
           )),
