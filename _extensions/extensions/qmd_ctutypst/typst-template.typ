@@ -24,6 +24,7 @@
   paper-size: "a4",
   font-face: "Arial",
   heading-numbering: "1.1.1",
+  project_type: "Project",
   body,
 ) = {
 
@@ -70,8 +71,7 @@
   v(0.01fr)
   // Set project number
   if projectno != none {
-  text(size: 14pt, "Project number: ")
-  text(size: 14pt, projectno)
+  text(size: 14pt, project_type + " number: " + projectno)
   }
   v(0.01fr)
   
