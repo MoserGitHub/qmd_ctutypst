@@ -38,4 +38,9 @@ $endif$
 $else$
   heading-numbering: none,
 $endif$
+$if(project_type)$
+  project_type: "$project_type$",
+$else$
+  project_type: "Project",
+$endif$
 )
