@@ -12,9 +12,6 @@ author:
       affiliation: "CTU Bern, Department of Clinical Research, University of Bern"
       email: "alan.haynes@unibe.ch"
 logo: "dcrlogo.svg"
-logo_size: 100%
-logo2: "unibelogo.svg"
-logo_size2: 50%
 heading-numbering: "1.1.1"
 ---
 

@@ -20,12 +20,6 @@ $endif$
 $if(logo_size)$
   logo_size: $logo_size$, 
 $endif$
-$if(logo2)$
-  logo2: "$logo2$", 
-$endif$
-$if(logo_size2)$
-  logo_size2: $logo_size2$, 
-$endif$
 $if(by-author)$
   author: (
 $for(by-author)$
@@ -47,6 +41,6 @@ $endif$
 $if(project_type)$
   project_type: "$project_type$",
 $else$
-  project_type: "DCR Project",
+  project_type: "DCR project",
 $endif$
 )

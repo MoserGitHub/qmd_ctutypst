@@ -20,9 +20,9 @@
   logo: none,
   // logo_size: percentage (for example, 80%) or auto
   logo_size: 100%,
-  logo2: none,
+  logo2: "unibelogo.svg",
   // logo_size2: percentage (for example, 80%) or auto
-  logo_size2: 100%,
+  logo_size2: 40%,
   date: datetime.today(),
   paper-size: "a4",
   font-face: "Arial",
