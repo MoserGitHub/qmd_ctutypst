@@ -20,6 +20,9 @@
   logo: none,
   // logo_size: percentage (for example, 80%) or auto
   logo_size: 100%,
+  logo2: none,
+  // logo_size2: percentage (for example, 80%) or auto
+  logo_size2: 100%,
   date: datetime.today(),
   paper-size: "a4",
   font-face: "Arial",
@@ -40,7 +43,7 @@
   // Configure title page
   set page(
     paper-size,
-    margin: (left: 2cm, right: 2cm, top: 5cm, bottom: 2cm),
+    margin: (left: 3cm, right: 2cm, top: 5cm, bottom: 4cm),
     header: block(
       width: 100%,
       inset: (top: 1pt, right: 2pt),
@@ -52,10 +55,27 @@
         box(
           width: 27%,
           image(path_logo+logo, width: logo_size)
-        ),
+        )
       )
       }
-    )
+    ),
+    footer: block(
+      width: 100%,
+      inset: (top: 1pt, right: 2pt),
+      if (logo2 != none) {
+        place(
+          top+left,
+          dx: 0cm,
+          dy: -0.6cm,
+          float: false,
+        box(
+          width: 40%,
+          height: 100%,
+          image(path_logo+logo2, width: logo_size2)
+        )
+      )
+      }
+    ),
   )
 
   v(0.1fr)
@@ -118,7 +138,8 @@
 
   // Table of content
   if toc != false {
-  // Space between section heading
+
+    // Space between section heading
   show heading: it => {
     it.body
     v(0.7em)
@@ -135,7 +156,7 @@
   
   set page(
     paper-size,
-    margin: (left: 2cm, right: 2cm, top: 5cm, bottom: 2cm),
+    margin: (left: 3cm, right: 2cm, top: 5cm, bottom: 4cm),
     numbering: "1",
     number-align: right,
     header: block(
@@ -155,23 +176,29 @@
     ),
     footer: block(
       width: 100%,
-      stroke: (top: 1pt + gray),
-      inset: (top: 8pt, right: 2pt),
+      inset: (top: 1pt, right: 2pt),
       [
-        #grid(columns: (75%, 25%),
-          align(left, text(size: 9pt, fill: gray.darken(50%),
-              (
-                {emph(title)},
-                if(date != none) {date.display("[month repr:long] [day], [year]")}
-              ).filter(t => t != none).join(spacer)
-          )),
+       #place(
+          top+left,
+          dx: 0cm,
+          dy: -0.6cm,
+          float: false,
+        box(
+          width: 40%,
+          height: 100%,
+          image(path_logo+logo2, width: logo_size2)
+        )
+      ),
+        #grid(columns: (100%, 20%),
           align(right)[
             #text(
               size: 9pt, fill: gray.darken(50%)
             )[
             #counter(page).display() of #locate((loc) => {counter(page).final(loc).first()})
             ]
-          ]
+          ],
+
+
         )
       ]
     )
