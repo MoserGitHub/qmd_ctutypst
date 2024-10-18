@@ -5,13 +5,13 @@ subtitle: "Subtitle"
 projectno: "XXXX"
 author:
     - name: "André Moser"
-      affiliation: "CTU Bern, Department of Clinical Research, University of Bern"
+      affiliation: "Department of Clinical Research, University of Bern"
       email: "andre.moser@unibe.ch"
     - name: "Alan Haynes"
-      affiliation: "CTU Bern, Department of Clinical Research, University of Bern"
+      affiliation: "Department of Clinical Research, University of Bern"
       email: "alan.haynes@unibe.ch"
 toc: true
-papersize: a4
+paper-size: a4
 heading: true
 heading-numbering: "1.1.1"
 ---

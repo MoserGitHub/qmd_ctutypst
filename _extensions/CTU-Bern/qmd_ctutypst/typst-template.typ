@@ -54,7 +54,7 @@
           float: false,
         box(
           width: 27%,
-          image(path_logo+logo, width: logo_size)
+          if (paper-size == "a4") { image(path_logo+logo, width: 100%) } else if (paper-size == "a3") { image(path_logo+logo, width: 90%) } else if (paper-size == "a2") { image(path_logo+logo, width: 70%) } else if (paper-size == "a1") { image(path_logo+logo, width: 60%) } else if (paper-size == "a0") { image(path_logo+logo, width: 50%) }
         )
       )
       }
@@ -71,7 +71,7 @@
         box(
           width: 40%,
           height: 100%,
-          image(path_logo+logo2, width: logo_size2)
+          if (paper-size == "a4") { image(path_logo+logo2, width: 40%) } else if (paper-size == "a3") { image(path_logo+logo2, width: 30%) } else if (paper-size == "a2") { image(path_logo+logo2, width: 20%) } else if (paper-size == "a1") { image(path_logo+logo2, width: 15%) } else if (paper-size == "a0") { image(path_logo+logo2, width: 10%) }
         )
       )
       }
@@ -169,7 +169,7 @@
           float: false,
         box(
           width: 27%,
-          image(path_logo+logo, width: logo_size)
+          if (paper-size == "a4") { image(path_logo+logo, width: 100%) } else if (paper-size == "a3") { image(path_logo+logo, width: 90%) } else if (paper-size == "a2") { image(path_logo+logo, width: 70%) } else if (paper-size == "a1") { image(path_logo+logo, width: 60%) } else if (paper-size == "a0") { image(path_logo+logo, width: 50%) }
         ),
       )
       }
@@ -186,7 +186,7 @@
         box(
           width: 40%,
           height: 100%,
-          image(path_logo+logo2, width: logo_size2)
+          if (paper-size == "a4") { image(path_logo+logo2, width: 40%) } else if (paper-size == "a3") { image(path_logo+logo2, width: 30%) } else if (paper-size == "a2") { image(path_logo+logo2, width: 20%) } else if (paper-size == "a1") { image(path_logo+logo2, width: 15%) } else if (paper-size == "a0") { image(path_logo+logo2, width: 10%) }
         )
       ),
         #grid(columns: (100%, 20%),
