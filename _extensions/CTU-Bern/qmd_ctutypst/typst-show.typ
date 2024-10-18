@@ -20,6 +20,9 @@ $endif$
 $if(logo_size)$
   logo_size: $logo_size$, 
 $endif$
+$if(logo_size2)$
+  logo_size2: $logo_size2$, 
+$endif$
 $if(by-author)$
   author: (
 $for(by-author)$

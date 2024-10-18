@@ -1,9 +1,8 @@
 ---
+format: qmd_ctutypst-typst
 title: "Title"
 subtitle: "Subtitle"
 projectno: "XXXX"
-toc: true
-format: qmd_ctutypst-typst
 author:
     - name: "André Moser"
       affiliation: "CTU Bern, Department of Clinical Research, University of Bern"
@@ -11,10 +10,133 @@ author:
     - name: "Alan Haynes"
       affiliation: "CTU Bern, Department of Clinical Research, University of Bern"
       email: "alan.haynes@unibe.ch"
-logo: "dcrlogo.svg"
+toc: true
+papersize: a4
+heading: true
 heading-numbering: "1.1.1"
 ---
 
-# Chapter 1
+# Section 1
 
-# Chapter 2
+You can use the usual '\$' for mathematical expressions within a text $Y_{t}=a+bX+Y_1+\epsilon$
+
+or indent with '\$\$' 
+
+$$
+Y_{t}=a+bX+Y_1+\epsilon
+$$
+
+## Subsection
+
+Subsection
+
+# Raw typst
+
+For raw typst code you can use **typst chunks**. Raw typst coding might be useful in tables, because you can use R output in typst chunks:
+
+```{r, echo=T}
+value_1 <- 1
+value_2 <- 2
+value_3 <- 3
+value_4 <- 4
+```
+
+```{=typst}
+#let frame(stroke) = (x, y) => (
+  left: none,
+  right: none,
+  top: if y < 2 { stroke } else { 0pt },
+  bottom: stroke,
+)
+
+#set table(
+  align: (right, left, center),
+  stroke: frame(rgb("21222C")),
+)
+
+#table(
+  columns: (auto, auto, auto),
+  table.header(
+    [*Hypothesis*], [*Group*], [*Assumed value*]),
+    [Null hypothesis], [Control arm], [`r value_1`],
+    [#text(weight: "bold")[Null hypothesis]], [Experimental arm], [`r value_2`],
+    [Alternative hypothesis 1], [Control arm], table.cell(fill: purple)[#text(white)[`r value_3`]],
+    [Alternative hypothesis 1], table.cell(fill: red)[Combined dosage arms], [`r value_4`]
+  )
+```
+
+## Tinytable
+
+The *tinytable* packages table allows typst-specific table layout, for example, colouring:
+
+```{r}
+#| echo: true
+#| message: false
+#| 
+library(tidyverse)
+library(tinytable)
+
+output <- tibble(kpi=c(1,1,2,5), center=c("A", "B", "C", "D"))
+
+output$kpi_ind <- NA
+output$kpi_ind[output$kpi==1] <- 1
+output$kpi_ind[output$kpi>1 & output$kpi<=2] <- 2
+output$kpi_ind[output$kpi>2 & output$kpi<=4] <- 3
+output$kpi_ind[output$kpi>4] <- 4
+
+output$kpi_ind <- factor(output$kpi_ind, levels=1:4, 
+                         labels=c("#ff0000", "#ffa500", "#90ee90", "#32cd32"))
+
+output_colours <- rep(as.character(output$kpi_ind), 1)
+
+no_rows <- nrow(output)
+colour_column <- ncol(output)-1
+
+output <- output |> select(!kpi_ind) |> tt() |> 
+  format_tt(digits=2) |> style_tt(i=0, bold=T)
+
+for (i in 1:nrow(output)) {
+
+    output <- output |> style_tt(i = i,
+                                 j = colour_column, 
+                                 background = output_colours[i], 
+                                 color = "black")
+
+
+}
+output
+```
+
+# Revision history
+
+```{=typst}
+#let frame(stroke) = (x, y) => (
+  left: none,
+  right: none,
+  top: if y < 2 { stroke } else { 0pt },
+  bottom: stroke,
+)
+
+#set table(
+  align: horizon + start,
+  stroke: frame(rgb("21222C")),
+)
+
+#table(
+  columns: (auto, auto, auto),
+  table.header([*Version*], [*Date*], [*Revision changes*]),
+[0], [Date], [],
+)
+
+
+```
+
+
+# Reproducibility
+
+R packages used in the analysis:
+
+```{r sessionInfo}
+options(width = 90)
+sessionInfo()
+```
