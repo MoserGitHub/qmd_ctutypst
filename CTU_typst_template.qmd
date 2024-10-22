@@ -14,6 +14,7 @@ toc: true
 paper-size: a4
 heading: true
 heading-numbering: "1.1.1"
+bibliography: references.bib
 ---
 
 # Section 1
@@ -28,7 +29,7 @@ $$
 
 ## Subsection
 
-Subsection
+Subsection: Use citations like @ref1 and @ref2.
 
 # Raw typst
 
