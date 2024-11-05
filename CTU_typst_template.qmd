@@ -33,7 +33,7 @@ Subsection: Use citations like @ref1 and @ref2.
 
 # Table options
 
-```{r, echo=T}
+```{r}
 #| echo: false
 #| message: false
 #| warning: false
@@ -99,7 +99,7 @@ gt_tbl
 
 For raw typst code you can use **typst chunks**. Raw typst coding might be useful in tables, because you can use R output in typst chunks:
 
-```{r, echo=T}
+```{r}
 #| echo: true
 #| message: false
 #| 
