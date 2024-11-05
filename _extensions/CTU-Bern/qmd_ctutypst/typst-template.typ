@@ -32,6 +32,11 @@
 ) = {
 
 
+ set table( 
+  inset: 6pt, 
+   stroke: none 
+ ) 
+
   // Spacer for footer
   let spacer = text(fill: gray)[#h(8pt) | #h(8pt)]
   

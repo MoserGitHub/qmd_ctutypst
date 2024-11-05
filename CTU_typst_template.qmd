@@ -31,11 +31,79 @@ $$
 
 Subsection: Use citations like @ref1 and @ref2.
 
+# Table options
+
+```{r, echo=T}
+#| echo: false
+#| message: false
+#| warning: false
+
+library(gt)
+
+gtcars |>
+  dplyr::filter(mfr == "Ferrari", hp < 900) %>%
+  dplyr::select(model, hp, mpg_c, mpg_h, msrp) %>%
+    gt() |> 
+    data_color(
+    columns = vars(hp),
+    colors = scales::col_numeric(
+    palette = c(
+    "white", "orange", "red"),
+    domain = c(500, 750))
+  ) |> 
+  data_color(
+    columns = vars(mpg_c, mpg_h),
+    colors = scales::col_numeric(
+    palette = c("white", "green"),
+    domain = c(10, 25))
+  ) |>
+  data_color(
+    columns = vars(msrp),
+    colors = scales::col_numeric(
+    palette = c("white", "pink", "red"),
+  domain = NULL)
+  )
+
+library(dplyr)
+
+islands_tbl <-
+  tibble(
+    name = names(islands),
+    size = islands
+  ) |>
+  arrange(desc(size)) |> slice(1:10)
+  
+  gt_tbl <- gt(islands_tbl)
+  
+  gt_tbl <- gt_tbl |>
+    tab_header(
+      title = "Large Landmasses of the World",
+      subtitle = "The top ten largest are presented"
+    )
+  
+  gt_tbl <-
+    gt_tbl |>
+    tab_source_note(
+      source_note = "Source: The World Almanac and Book of Facts, 1975, page 406."
+    ) |>
+    tab_source_note(
+      source_note = md("Reference: McNeil, D. R. (1977) *Interactive Data Analysis*.
+      Wiley.")
+    )
+  
+# Show the gt table
+gt_tbl
+```
+
 # Raw typst
 
 For raw typst code you can use **typst chunks**. Raw typst coding might be useful in tables, because you can use R output in typst chunks:
 
 ```{r, echo=T}
+#| echo: true
+#| message: false
+#| 
+
 value_1 <- 1
 value_2 <- 2
 value_3 <- 3
@@ -105,6 +173,7 @@ for (i in 1:nrow(output)) {
 
 
 }
+
 output
 ```
 
