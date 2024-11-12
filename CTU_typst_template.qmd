@@ -15,6 +15,7 @@ paper-size: a4
 heading: true
 heading-numbering: "1.1.1"
 bibliography: references.bib
+keep-md: true
 ---
 
 # Section 1

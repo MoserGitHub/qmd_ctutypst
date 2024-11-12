@@ -32,16 +32,20 @@
 ) = {
 
 
+  
  set table( 
   inset: 6pt, 
    stroke: none 
  ) 
+
+
 
   // Spacer for footer
   let spacer = text(fill: gray)[#h(8pt) | #h(8pt)]
   
   // Set document metadata
   set document(title: title)
+ 
   // Set the body font
   set text(font: font-face)
 
@@ -152,7 +156,7 @@
   
   pagebreak()
   counter(page).update(0)
-  outline()
+   outline(indent: auto)
   }
   
   // Configure main document pages
@@ -210,7 +214,7 @@
   )
 
   pagebreak()
-  
+
   // Configure headings.
   set heading(numbering: heading-numbering)
 
